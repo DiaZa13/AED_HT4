@@ -8,7 +8,7 @@
 
 import java.util.Iterator;
 
-public interface List<E> {
+public interface iList<E> {
 	
 	public int size();
 	// post: returns number of elements in list

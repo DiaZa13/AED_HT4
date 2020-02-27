@@ -100,7 +100,7 @@ public class CircularLinkedList<E> extends AbstractList<E> {
 		count--;
 		return temp.value();
 		}
-		}
+	}
 
 	@Override
 	public E remove(E value) {

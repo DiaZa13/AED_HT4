@@ -96,31 +96,8 @@ count = 0;
 }
 
 @Override
-public E remove(E value) // pre: value is not null
-//post: removes first element with matching value, if any
-{
-Node<E> finger = head;
-Node<E> previous = null;
-while (finger != null &&
-!finger.value().equals(value))
-{
-previous = finger;
-finger = finger.next();
-}
-//finger points to target value
-if (finger != null) {
-//we found element to remove
-if (previous == null) // it is first
-{
-head = finger.next();
-} else { // it's not first
-previous.setNext(finger.next());
-}
-count--;
-return finger.value();
-}
-//didn't find it, return null
-return null;
+public E remove(E value) {
+	return null;
 }
 
 @Override

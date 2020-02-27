@@ -5,7 +5,7 @@
  * @version 26/02/2020
  *	
  */
-public abstract class AbstractList<E> implements List<E> {
+public abstract class AbstractList<E> implements iList<E> {
 	
 	// post: does nothing
 	public AbstractList(){

@@ -10,12 +10,12 @@ import java.util.ArrayList;
 public class StackList<E> extends AbstractStack<E> {
 	
 		ListFactory<String> lFactory = new ListFactory<String>();
-		List<String> lista;
+		iList<String> lista;
 	
 		public StackList()
 		// post: constructs a new, empty stack
 		{
-			lista = lFactory.getStack("1");
+			lista = lFactory.getStack("2");
 		}
 		
 	@Override
@@ -28,7 +28,10 @@ public class StackList<E> extends AbstractStack<E> {
 	@Override
 	public E pop() {
 		// TODO Auto-generated method stub
-		return (E) lista.removeFirst();
+		if(lista instanceof CircularLinkedList)
+			return (E) lista.removeLast();
+		else
+			return (E) lista.removeFirst();
 	}
 
 	@Override
