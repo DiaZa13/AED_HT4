@@ -41,22 +41,6 @@ public class pCalculadora <E> {
 		
 		iStack<String> stack = sFactory.getStack(menu);
 		
-		if(menu.equals("3")) {
-			System.out.println("----- LISTAS ----");
-			System.out.println("1. Simplemente Encadenada");
-			System.out.println("2. Doblemente Encadenada");
-			System.out.println("3. Lista Circular");
-			System.out.print("Ingrese el numero de la opcion que desee probar: ");
-			menub = read.nextLine();
-			tmenub = MenuInvalido(menub);
-			while (tmenub != false) {
-				System.out.print("Ingrese nuevamente el numero de la opcion que desee: ");	
-				menub = read.nextLine();
-				tmenub = MenuInvalido(menub);
-			}
-		}
-			
-		
 		cadena = readFile();
 		String [] cadLista = cadena.split(" ");
 		
