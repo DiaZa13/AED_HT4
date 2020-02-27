@@ -19,6 +19,8 @@ public class StackVector<E>  extends AbstractStack<E> {
 	 * Agregar un nuevo elemento al stack
 	 * 
 	 */
+	// post: the value is added to the stack
+	// will be popped next if no intervening push
 	public void push(E item) {
 		// TODO Auto-generated method stub
 		vector.add(item);
@@ -31,6 +33,8 @@ public class StackVector<E>  extends AbstractStack<E> {
 	 * Retira el ultimo elemento del stack
 	 * @return E ultimo
 	 */
+	// pre: stack is not empty
+	// post: most recently pushed item is removed and returned
 	public E pop() {
 		// TODO Auto-generated method stub
 		return vector.remove(size()-1);
@@ -42,6 +46,8 @@ public class StackVector<E>  extends AbstractStack<E> {
 	 * Muestra el elemento que se encuentra en la ultima posicion en el stack
 	 * @return E multimo
 	 */
+	// pre: stack is not empty
+	// post: top value (next to be popped) is returned
 	public E peek() {
 		// TODO Auto-generated method stub
 		return vector.get(size()-1);
@@ -53,6 +59,7 @@ public class StackVector<E>  extends AbstractStack<E> {
 	 * Devuelve el tamanio del stack
 	 * @return int size
 	 */
+	// post: returns the number of elements in the stack
 	public int size() {
 		// TODO Auto-generated method stub
 		return vector.size();

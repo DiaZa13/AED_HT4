@@ -2,10 +2,14 @@
  * 
  * @author Diana Zaray Corado && Javier Alejandro Cotto
  * @author Adaptado de Douglas Barrios
+ * @version 26/02/2020
+ * Factory de las diversas implementaciones de listas
  *
  */
 class ListFactory<E> {
-
+	
+	//pre: 
+	//post: se instance un tipo de lista
    public iList<E> getList(String entry) {
 
 	if (entry.equals("1"))

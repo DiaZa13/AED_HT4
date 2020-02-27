@@ -6,16 +6,16 @@
  */
 public interface iCalculadora {
 	
-	//Ingresan dos valores numericos y realiza una suma
+	//post: returns the sum of the values
 	public int sumar (int operando1, int operando2);
 	
-	//Ingresan dos valores numericos y realiza una resta
+	//post: returns the substract of the values
 	public int restar (int operando1, int operando2);
 	
-	//Ingresan dos valores numericos y realiza una multiplicacion
+	//post: returns the product of the values
 	public int multiplicar (int operando1, int operando2);
 	
-	//Ingresan dos valores numericos y realiza una division
+	//post: returns the division of the values
 	public int dividir(int operando1, int operando2);
 
 }

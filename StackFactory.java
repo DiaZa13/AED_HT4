@@ -16,6 +16,8 @@ class StackFactory<E> {
 	boolean tmenub;
 	Scanner read = new Scanner(System.in);
 	
+	//pre:
+	//post: se hace una instancia del tipo de coleccion que decida el usuario
 	public iStack<E> getStack(String entry) {
 	   
 	if (entry.equals("1"))
@@ -39,6 +41,8 @@ class StackFactory<E> {
 			return new StackList<E>(menub);
 	}
    
+	//pre:
+	//post: se conoce si el usuario ingreso un numero incorrecto
    public static String readFile(){
 		 
 	 	String cadena = "", linea;
