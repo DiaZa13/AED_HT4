@@ -12,14 +12,13 @@ import java.io.FileReader;
 import java.util.Scanner;
 import java.util.Stack;
 
-
 public class pCalculadora <E> {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		StackFactory<String> sFactory = new StackFactory<String>();
 		Scanner read = new Scanner(System.in);
-		StackVector<String> stack = new StackVector<String>();
 		iCalculadora calculadora = new Calculadora();
 		
 		boolean error = false,tmenu,tmenub;
@@ -39,7 +38,9 @@ public class pCalculadora <E> {
 			menu = read.nextLine();
 			tmenu = MenuInvalido(menu);
 		}
-			
+		
+		iStack<String> stack = sFactory.getStack(menu);
+		
 		if(menu.equals("3")) {
 			System.out.println("----- LISTAS ----");
 			System.out.println("1. Simplemente Encadenada");
@@ -71,61 +72,56 @@ public class pCalculadora <E> {
     		
 	    	for(int i=0; i<cadLista.length;i++){
 	    		
-	    		if(cadLista[i].equals("+")) {
+	    		 if(cadLista[i].equals("+")) {
 	    				try {
 		    				operando1 = Integer.valueOf(stack.pop());
 							operando2 = Integer.valueOf(stack.pop());
 							stack.push(String.valueOf(calculadora.sumar(operando1,operando2)));
 		    			}catch(Exception e) {
-		    				error = true;
+		    				//error = true;
 		    				}
-	    		}else 
-	    			if(cadLista[i].equals("-")) {
+	    		}else if(cadLista[i].equals("-")) {
 	    				try {
 	    				operando1 = Integer.valueOf(stack.pop());
 						operando2 = Integer.valueOf(stack.pop());
 						stack.push(String.valueOf(calculadora.restar(operando1,operando2)));
 						}catch(Exception e) {
-							error = true;
+							//error = true;
 						}
 	    				
-	    		}else 
-	    			if(cadLista[i].equals("*")) {
+	    		}else if(cadLista[i].equals("*")) {
 	    				try {
 	    				operando1 = Integer.valueOf(stack.pop());
 						operando2 = Integer.valueOf(stack.pop());
 						stack.push(String.valueOf(calculadora.multiplicar(operando1,operando2)));
 						}catch(Exception e) {
-							error = true;
+							//error = true;
 						}
-		    	}else 
-		    		if(cadLista[i].equals("/")) {
+		    	}else if(cadLista[i].equals("/")) {
 		    			try {
 		    			operando1 = Integer.valueOf(stack.pop());
 						operando2 = Integer.valueOf(stack.pop());
 						stack.push(String.valueOf(calculadora.dividir(operando2,operando1)));
 						}catch(Exception e) {
-							error = true;
-						}
-	    		}else {
-	    				stack.push(cadLista[i]);
-	    		}	
+							//error = true;
+					}
+	    		}
+		    	else
+		    		stack.push(cadLista[i]);
 	    	}
-	    
-	   	   	stack.push(cadena);
-	   	   	stack.pop();
+	       	   	
 	    }else
 	    	error = true;
 	    	
 	    	
-	   	   	if(error != true) {
-	   	   		System.out.println("El resultado es: " + stack.pop());
+	   	if(error != true) {
+	   	   	System.out.println("El resultado es: " + stack.pop());
 	   	   		
-	   	   	}
-	   	   	else {
-	   	   		System.out.println("La operacion no se pudo realizar");   	   		
-	   	   	}
-		}
+	   	  }
+	   	else {
+	   	   	System.out.println("La operacion no se pudo realizar");   	   		
+	   	  }
+	}
 	 
 				
 	public static String readFile(){
@@ -136,28 +132,17 @@ public class pCalculadora <E> {
 	    BufferedReader br = null;
 
 			try {
-	        // Apertura del fichero y creacion de BufferedReader para poder
-	        // hacer una lectura comoda (disponer del metodo readLine()).
-	        //archivo = new File ("Numeros.txt");
-
 			fr = new FileReader ("Calculos.txt");
 	        br = new BufferedReader(fr);
-
-	        // Lectura del fichero
-	       // System.out.println("Leyendo el contendio del archivo.txt");
 
 	        while((linea = br.readLine())!=null)
 	            cadena= linea;
 
-	        //System.out.println(linea);
-	        //cadLista = linea.split(" ");
 	    }
 			catch(Exception e){
 	        e.printStackTrace();
 	    }finally{
-	        // En el finally cerramos el fichero, para asegurarnos
-	        // que se cierra tanto si todo va bien como si salta
-	        // una excepcion.
+
 	        try{
 	            if( null != fr ){
 	                fr.close();

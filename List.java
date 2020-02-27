@@ -19,7 +19,7 @@ public interface List<E> {
 	public void clear();
 	// post: empties list
 	
-	public void addFirst(E value);
+	public void addFirst(E item);
 	// post: value is added to beginning of list
 	
 	public void addLast(E value);

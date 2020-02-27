@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * 
  * @author Diana Zaray Corado Lopez && Javier Alejandro Cotto
@@ -6,37 +8,40 @@
  *
  */
 public class StackList<E> extends AbstractStack<E> {
-
-	private List<E> lista = new SinglyLinkedList<E>();
 	
+		ListFactory<String> lFactory = new ListFactory<String>();
+		List<String> lista;
+	
+		public StackList()
+		// post: constructs a new, empty stack
+		{
+			lista = lFactory.getStack("1");
+		}
+		
 	@Override
 	public void push(E item) {
 		// TODO Auto-generated method stub
-		
+		//lista.addFirst((String) item);
+		lista.addLast((String) item);
 	}
 
 	@Override
 	public E pop() {
 		// TODO Auto-generated method stub
-		return null;
+		return (E) lista.removeFirst();
 	}
 
 	@Override
 	public E peek() {
 		// TODO Auto-generated method stub
-		return null;
+		return (E) lista.getFirst();
 	}
 
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean empty() {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return lista.size();
 	}
 
 }
