@@ -8,7 +8,7 @@ import java.util.Iterator;
  *
  */
 public class CircularLinkedList<E> extends AbstractList<E> {
-	protected Node<E> tail;
+	protected SinglyLinkedNode<E> tail;
 	protected int count;
 	public CircularLinkedList()
 	// pre: constructs a new circular list
@@ -36,7 +36,7 @@ public class CircularLinkedList<E> extends AbstractList<E> {
 		// pre: value non-null
 		// post: adds element to head of list
 		{
-		Node<E> temp = new Node<E>(value);
+		SinglyLinkedNode<E> temp = new SinglyLinkedNode<E>(value);
 		if (tail == null) { // first value added
 		tail = temp;
 		tail.setNext(tail);
@@ -84,12 +84,12 @@ public class CircularLinkedList<E> extends AbstractList<E> {
 		// pre: !isEmpty()
 		// post: returns and removes value from tail of list
 		{
-		Node<E> finger = tail;
+		SinglyLinkedNode<E> finger = tail;
 		while (finger.next() != tail) {
 		finger = finger.next();
 		}
 		// finger now points to second-to-last value
-		Node<E> temp = tail;
+		SinglyLinkedNode<E> temp = tail;
 		if (finger == tail)
 		{
 		tail = null;

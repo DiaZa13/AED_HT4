@@ -6,7 +6,7 @@
  */
 class ListFactory<E> {
 
-   public iList<E> getStack(String entry) {
+   public iList<E> getList(String entry) {
 
 	if (entry.equals("1"))
       return new SinglyLinkedList<E>(); //Crea una instancia de Lista Simplemente Encadenada

@@ -10,12 +10,12 @@ import java.util.ArrayList;
 public class StackList<E> extends AbstractStack<E> {
 	
 		ListFactory<String> lFactory = new ListFactory<String>();
-		iList<String> lista;
+		private iList<String> lista;
 	
 		public StackList()
 		// post: constructs a new, empty stack
 		{
-			lista = lFactory.getStack("2");
+			lista = lFactory.getList("2");
 		}
 		
 	@Override
