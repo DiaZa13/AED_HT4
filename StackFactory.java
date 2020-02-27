@@ -6,13 +6,16 @@
  *
  */
 class StackFactory<E> {
-//selecciona la implementacion a utilizar para un stack
-//se utiliza el patron Factory
+
+	
    public iStack<E> getStack(String entry) {
-    // seleccion de la implementacion a utilizar:
-	if (entry.equals("AL"))
-      return new StackArrayList<E>(); //regresa ArrayList
+	   
+	if (entry.equals("1"))
+      return new StackVector<E>(); //Crea una instancia de un Vector
+	else if(entry.equals("2"))
+      return new StackArrayList<E>(); //Crea una instancia de un ArrayList
 	else
-      return new StackVector<E>(); //regresa Vector
+		return new StackList<E>();
+	
    }
 }
