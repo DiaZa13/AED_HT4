@@ -5,12 +5,12 @@
  *@version 26/02/2020
  *
  */
-public class Node<E>
+public class SinglyLinkedNode<E>
 {
    protected E data; // value stored in this element
-   protected Node<E> nextElement; // ref to next
+   protected SinglyLinkedNode<E> nextElement; // ref to next
 
-   public Node(E v, Node<E> next)
+   public SinglyLinkedNode(E v, SinglyLinkedNode<E> next)
    // pre: v is a value, next is a reference to 
    //      remainder of list
    // post: an element is constructed as the new 
@@ -20,19 +20,19 @@ public class Node<E>
        nextElement = next;
    }
 
-   public Node(E v)
+   public SinglyLinkedNode(E v)
    // post: constructs a new tail of a list with value v
    {
       this(v,null);
    }
 
-   public Node<E> next()
+   public SinglyLinkedNode<E> next()
    // post: returns reference to next value in list
    {
       return nextElement;
    }
 
-   public void setNext(Node<E> next)
+   public void setNext(SinglyLinkedNode<E> next)
    // post: sets reference to new next value
    {
       nextElement = next;

@@ -11,7 +11,7 @@ public class SinglyLinkedList<E> extends AbstractList<E>
 {
 
    protected int count; // list size
-   protected Node<E> head; // ref. to first element
+   protected SinglyLinkedNode<E> head; // ref. to first element
 
    public SinglyLinkedList()
    // post: generates an empty list
@@ -31,7 +31,7 @@ public class SinglyLinkedList<E> extends AbstractList<E>
   {
      // note order that things happen:
      // head is parameter, then assigned
-     head = new Node<E>(value, head);
+     head = new SinglyLinkedNode<E>(value, head);
      count++;
   }
   
@@ -39,7 +39,7 @@ public class SinglyLinkedList<E> extends AbstractList<E>
   // pre: list is not empty
   // post: removes and returns value from beginning of list
  {
-     Node<E> temp = head;
+     SinglyLinkedNode<E> temp = head;
      head = head.next(); // move head down list
      count--;
      return temp.value();
@@ -56,11 +56,11 @@ public class SinglyLinkedList<E> extends AbstractList<E>
   // post: adds value to end of list
   {
       // location for new value
-      Node<E> temp = new Node<E>(value,null);
+      SinglyLinkedNode<E> temp = new SinglyLinkedNode<E>(value,null);
       if (head != null)
      {
          // pointer to possible tail
-         Node<E> finger = head;
+         SinglyLinkedNode<E> finger = head;
          while (finger.next() != null)
          {
                 finger = finger.next();
@@ -78,7 +78,7 @@ public class SinglyLinkedList<E> extends AbstractList<E>
    // pre: value is not null
    // post: returns true iff value is found in list
   {
-      Node<E> finger = head;
+      SinglyLinkedNode<E> finger = head;
 	  
       while (finger != null &&
              !finger.value().equals(value))
