@@ -4,6 +4,7 @@ import java.util.Iterator;
  * @author Diana Zaray Corado && Javier Alejandro Cotto
  * @author Adaptado de: Daune A. Bailey, Java Structures
  * @see http://dept.cs.williams.edu/~bailey/JavaStructures/Book_files/JavaStructures.pdf
+ * @version 26/02/2020
  *
  */
 public class SinglyLinkedList<E> extends AbstractList<E>

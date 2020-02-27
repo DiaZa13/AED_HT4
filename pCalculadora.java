@@ -1,5 +1,15 @@
+/**
+ * @author Diana Zaray Corado && Javier Alejandro Cotto
+ * @author Adaptado de: Lectura_y_Escritura_de_Ficheros_en_Java
+ * @see //chuwiki.chuidiang.org/index.php?
+ * @version 26/02/2020
+ * Clase que se encarga de leer y mostrar datos al usuario
+ */
+
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
+import java.util.Scanner;
 import java.util.Stack;
 
 
@@ -8,32 +18,57 @@ public class pCalculadora <E> {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Stack<String> stack = new Stack<String>();
+		Scanner read = new Scanner(System.in);
+		StackVector<String> stack = new StackVector<String>();
 		iCalculadora calculadora = new Calculadora();
-		boolean error = false;
-		String cadena;
+		
+		boolean error = false,tmenu,tmenub;
 		int operando1, operando2;
 		int contn = 0, conto = 0,a = 0;
-
-		try{
-			FileReader f = new FileReader("C:\\Users\\claudia\\Desktop\\Algortimos y Estructuras de Datos\\HT_2\\src/Calculos.txt");
-
-	      BufferedReader b = new BufferedReader(f);
-	      while((cadena = b.readLine())!=null) {
-
-	    	System.out.println("La operacion a realizar es: " + cadena);
-	    	String[] cadLista = cadena.split(" ");
-	    	
-	    		while(a < cadLista.length) {
+		String cadena,menu,menub;
+		
+		System.out.println("------- HT4 VECTOR, ARRAYLIST y LIST ---------");
+		System.out.println("1. Implementacion por medio de  Vector");
+		System.out.println("2. Implementacion por medio de  ArrayList");
+		System.out.println("3. Implementacion por medio de  Listas");
+		System.out.print("Ingrese el numero de la opcion que desee probar: ");
+		menu = read.nextLine();
+		tmenu = MenuInvalido(menu);
+		while (tmenu != false) {
+			System.out.print("Ingrese nuevamente el numero de la opcion que desee: ");	
+			menu = read.nextLine();
+			tmenu = MenuInvalido(menu);
+		}
+			
+		if(menu.equals("3")) {
+			System.out.println("----- LISTAS ----");
+			System.out.println("1. Simplemente Encadenada");
+			System.out.println("2. Doblemente Encadenada");
+			System.out.println("3. Lista Circular");
+			System.out.print("Ingrese el numero de la opcion que desee probar: ");
+			menub = read.nextLine();
+			tmenub = MenuInvalido(menub);
+			while (tmenub != false) {
+				System.out.print("Ingrese nuevamente el numero de la opcion que desee: ");	
+				menub = read.nextLine();
+				tmenub = MenuInvalido(menub);
+			}
+		}
+			
+		
+		cadena = readFile();
+		String [] cadLista = cadena.split(" ");
+		
+			while(a < cadLista.length) {
 	    		if(cadLista[a].equals("1") || cadLista[a].equals("2") || cadLista[a].equals("3") || cadLista[a].equals("4") || cadLista[a].equals("5") || cadLista[a].equals("6") || cadLista[a].equals("7") || cadLista[a].equals("8") || cadLista[a].equals("9") || cadLista[a].equals("0"))
 	    			contn = contn + 1;
 	    		if(cadLista[a].equals("+") || cadLista[a].equals("-") || cadLista[a].equals("*") || cadLista[a].equals("/"))
 	    			conto = conto +1;
 	    		a++;
 	    		}
-	    		
-	    	if(contn == (conto + 1)) {
-	    		
+			
+			if(contn == (conto + 1)) {
+    		
 	    	for(int i=0; i<cadLista.length;i++){
 	    		
 	    		if(cadLista[i].equals("+")) {
@@ -90,15 +125,65 @@ public class pCalculadora <E> {
 	   	   	else {
 	   	   		System.out.println("La operacion no se pudo realizar");   	   		
 	   	   	}
-	      }
-	      b.close();
-		}catch(Exception e) {
-			e.printStackTrace();
 		}
-	      
-		
-	}
+	 
+				
+	public static String readFile(){
+		 
+	 	String cadena = "", linea;
+		File archivo = null;
+	    FileReader fr = null;
+	    BufferedReader br = null;
+
+			try {
+	        // Apertura del fichero y creacion de BufferedReader para poder
+	        // hacer una lectura comoda (disponer del metodo readLine()).
+	        //archivo = new File ("Numeros.txt");
+
+			fr = new FileReader ("Calculos.txt");
+	        br = new BufferedReader(fr);
+
+	        // Lectura del fichero
+	       // System.out.println("Leyendo el contendio del archivo.txt");
+
+	        while((linea = br.readLine())!=null)
+	            cadena= linea;
+
+	        //System.out.println(linea);
+	        //cadLista = linea.split(" ");
+	    }
+			catch(Exception e){
+	        e.printStackTrace();
+	    }finally{
+	        // En el finally cerramos el fichero, para asegurarnos
+	        // que se cierra tanto si todo va bien como si salta
+	        // una excepcion.
+	        try{
+	            if( null != fr ){
+	                fr.close();
+	            }
+	        }catch (Exception e){
+	            e.printStackTrace();
+	        }
+
+			}
+			return cadena;
+		}
+	
+	 public static boolean MenuInvalido(String me) {
+		 boolean incorrecto = false;
+		 if (!me.equals("1") && !me.equals("2") && !me.equals("3")) 
+			 incorrecto = true;
+		else 
+			incorrecto = false;
+		 
+		 return incorrecto;
+	 }
+	
+	
+	 
 }
+
 			
 		
 

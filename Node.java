@@ -2,6 +2,7 @@
  * 
  *@author Daune A. Bailey, Java Structures
  *@see http://dept.cs.williams.edu/~bailey/JavaStructures/Book_files/JavaStructures.pdf
+ *@version 26/02/2020
  *
  */
 public class Node<E>
